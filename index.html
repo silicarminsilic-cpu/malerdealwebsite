@@ -725,6 +725,13 @@ footer .logo b span{color:#fff;background:none;color:var(--y)}
 .mini .ph span svg{position:absolute;inset:0;width:100%;height:100%;display:block}
 .mini .ph span em{position:absolute;left:0;right:0;bottom:0;font-style:normal;font-size:10px;font-weight:700;color:#fff;text-align:center;padding:10px 0 3px;background:linear-gradient(transparent,rgba(29,26,20,.62))}
 .mini .ph{gap:8px}
+.ckbar{position:fixed;left:16px;right:16px;bottom:16px;z-index:95;max-width:560px;margin:0 auto;background:var(--navy);color:#fff;border-radius:16px;padding:16px 18px;box-shadow:0 18px 50px rgba(0,0,0,.35);display:none;gap:14px;align-items:center;flex-wrap:wrap}
+.ckbar.on{display:flex}
+.ckbar b{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--y);margin-bottom:4px}
+.ckbar p{margin:0;font-size:14px;line-height:1.5;color:#E9E4D6;flex:1 1 260px}
+.ckbar a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-weight:600}
+.ckbar .btn{flex:0 0 auto}
+body.has-mbar .ckbar{bottom:92px}
 </style>
 </head>
 <body>
@@ -975,7 +982,7 @@ footer .logo b span{color:#fff;background:none;color:var(--y)}
     <a class="btn btn-white btn-lg" href="#anfrage">Kostenlos Offerten erhalten <i class="ic" data-i="arrow"></i></a>
   </div>
   <div class="contact">
-    <div><i class="ic" data-i="phone"></i><p><b>Telefon</b><span>+41 79 740 18 18</span><br><small style="color:var(--muted)">Mo–Fr 09:00–16:00</small></p></div>
+    <div><i class="ic" data-i="phone"></i><p><b>Telefon</b><span>+41 76 274 66 50</span><br><small style="color:var(--muted)">Mo–Fr 09:00–16:00</small></p></div>
     <div><i class="ic" data-i="mail"></i><p><b>E-Mail</b><span>anfrage@malerdeal.ch</span><br><small style="color:var(--muted)">Antwort innert 24 h</small></p></div>
     <div><i class="ic" data-i="pin"></i><p><b>Adresse</b><span>Churerstrasse 160B, 8808 Pfäffikon</span></p></div>
   </div>
@@ -992,9 +999,9 @@ footer .logo b span{color:#fff;background:none;color:var(--y)}
         <p style="margin-top:14px;font-size:14px;max-width:30em">Ihr Portal für Malerofferten in der ganzen Schweiz. Innen, aussen, privat und für Verwaltungen.</p>
       </div>
       <div><h4>Für Kunden</h4><button class="lnk" data-go="kunden" data-anchor="anfrage">Anfrage starten</button><button class="lnk" data-go="kunden" data-anchor="k-how">So funktioniert's</button><button class="lnk" data-go="kunden" data-anchor="k-services">Leistungen</button><button class="lnk" data-go="kunden" data-anchor="k-faq">FAQ</button></div>
-      <div><h4>Kontakt</h4><span class="lnk">+41 79 740 18 18</span><span class="lnk">anfrage@malerdeal.ch</span><span class="lnk">Churerstrasse 160B<br>8808 Pfäffikon</span></div>
+      <div><h4>Kontakt</h4><span class="lnk">+41 76 274 66 50</span><span class="lnk">anfrage@malerdeal.ch</span><span class="lnk">Churerstrasse 160B<br>8808 Pfäffikon</span></div>
     </div>
-    <div class="legal"><span>© 2026 malerdeal.ch</span><span><button type="button" class="legal-lnk" data-legal="datenschutz">Datenschutz</button> · <button type="button" class="legal-lnk" data-legal="agb">AGB</button> · <button type="button" class="legal-lnk" data-legal="impressum">Impressum</button> · DE / FR / IT / EN</span></div>
+    <div class="legal"><span>© 2026 malerdeal.ch</span><span><button type="button" class="legal-lnk" data-legal="datenschutz">Datenschutz</button> · <button type="button" class="legal-lnk" data-legal="agb">AGB</button> · <button type="button" class="legal-lnk" data-legal="impressum">Impressum</button> · <button type="button" class="legal-lnk" id="ckOpen">Cookie-Hinweis</button> · DE / FR / IT / EN</span></div>
   </div>
 </footer>
 
@@ -1009,7 +1016,7 @@ footer .logo b span{color:#fff;background:none;color:var(--y)}
     <h2>Betreiberin</h2>
     <p>Dritivo AG (in Gründung)<br>Churerstrasse 160B<br>8808 Pfäffikon<br>Schweiz</p>
     <h2>Kontakt</h2>
-    <p>E-Mail: <a href="mailto:anfrage@malerdeal.ch">anfrage@malerdeal.ch</a><br>Telefon: <a href="tel:+41797401818">+41 79 740 18 18</a></p>
+    <p>E-Mail: <a href="mailto:anfrage@malerdeal.ch">anfrage@malerdeal.ch</a><br>Telefon: <a href="tel:+41762746650">+41 76 274 66 50</a></p>
     <h2>Status</h2>
     <p>Die Dritivo AG befindet sich in Gründung. Angaben zum Handelsregistereintrag, zur UID und zu den Vertretungsberechtigten werden nach der Eintragung ergänzt.</p>
     <h2>Plattformen</h2>
@@ -1026,7 +1033,7 @@ footer .logo b span{color:#fff;background:none;color:var(--y)}
     <h1 id="dsT">Datenschutzerklärung</h1>
     <p>Stand: Oktober 2026</p>
     <h2>1. Verantwortliche</h2>
-    <p>Verantwortlich für die Bearbeitung von Personendaten auf dieser Website ist die Dritivo AG (in Gründung), Churerstrasse 160B, 8808 Pfäffikon, Schweiz. Kontakt: <a href="mailto:anfrage@malerdeal.ch">anfrage@malerdeal.ch</a>, <a href="tel:+41797401818">+41 79 740 18 18</a>.</p>
+    <p>Verantwortlich für die Bearbeitung von Personendaten auf dieser Website ist die Dritivo AG (in Gründung), Churerstrasse 160B, 8808 Pfäffikon, Schweiz. Kontakt: <a href="mailto:anfrage@malerdeal.ch">anfrage@malerdeal.ch</a>, <a href="tel:+41762746650">+41 76 274 66 50</a>.</p>
     <h2>2. Worum es geht</h2>
     <p>malerdeal.ch ist eine Plattform, über die Privatpersonen und Verwaltungen Malerarbeiten anfragen können. Wir nehmen Ihre Anfrage entgegen und leiten sie an passende Malerbetriebe weiter, damit diese Ihnen eine Offerte erstellen können. Diese Erklärung beschreibt, welche Daten wir dabei bearbeiten. Sie richtet sich nach dem schweizerischen Datenschutzgesetz (DSG).</p>
     <h2>3. Daten, die wir bearbeiten</h2>
@@ -1045,7 +1052,7 @@ footer .logo b span{color:#fff;background:none;color:var(--y)}
     <p><b>E-Mail:</b> Unsere E-Mail-Postfächer betreibt Infomaniak Network AG (Schweiz).</p>
     <p>Einige dieser Dienstleister können Daten in Ländern bearbeiten, die kein dem schweizerischen Recht vergleichbares Datenschutzniveau haben, insbesondere in den USA. Wir stützen uns dann auf geeignete Garantien wie Standardvertragsklauseln oder Zertifizierungen der Anbieter.</p>
     <h2>7. Cookies und lokale Speicherung</h2>
-    <p>Wir setzen keine Tracking- oder Marketing-Cookies ein und verwenden keine Analyse-Dienste. Ihr Browser speichert lokal lediglich den Stand der Checkliste auf dieser Seite. Diese Angabe verlässt Ihr Gerät nicht.</p>
+    <p>Wir setzen keine Tracking- oder Marketing-Cookies ein und verwenden keine Analyse-Dienste. Ihr Browser speichert lokal lediglich den Stand der Checkliste auf dieser Seite und Ihre Auswahl zum Cookie-Hinweis. Diese Angaben verlassen Ihr Gerät nicht.</p>
     <h2>8. Aufbewahrung</h2>
     <p>Wir bewahren Ihre Daten so lange auf, wie es für die genannten Zwecke nötig ist oder gesetzliche Pflichten es verlangen. Danach löschen oder anonymisieren wir sie. Sie können die Löschung Ihrer Anfrage jederzeit verlangen.</p>
     <h2>9. Datensicherheit</h2>
@@ -1086,6 +1093,10 @@ footer .logo b span{color:#fff;background:none;color:var(--y)}
     <h2>12. Anwendbares Recht und Gerichtsstand</h2>
     <p>Es gilt schweizerisches Recht. Gerichtsstand ist, soweit zwingende Bestimmungen nichts anderes vorsehen, der Sitz der Anbieterin.</p>
   </div>
+</div>
+<div class="ckbar" id="ckbar" role="region" aria-label="Cookie-Hinweis">
+  <p><b>Cookies &amp; Datenschutz</b>Diese Website setzt keine Tracking- oder Marketing-Cookies. Lokal gespeichert wird nur Ihre Auswahl zu diesem Hinweis. Mehr dazu in der <a href="#datenschutz" data-legal="datenschutz">Datenschutzerklärung</a>.</p>
+  <button type="button" class="btn btn-primary btn-sm" id="ckOk">Verstanden</button>
 </div>
 <div class="toast" id="toast"><i class="ic" data-i="check"></i><span id="toastT"></span></div>
 
@@ -1293,7 +1304,8 @@ function collect(ref){
     'Bevorzugter Kontakt':segVal('#c-way')||'Beides','Hinweise':$('#c-note').value.trim()||'–'};
 }
 function mailtoFallback(d){const body=Object.entries(d).map(([k,v])=>k+': '+v).join('\n');return 'mailto:'+MAIL_TO+'?subject='+encodeURIComponent('Anfrage '+d['Anfragenummer']+' – '+d['Leistung'])+'&body='+encodeURIComponent(body);}
-async function post(fd){const r=await fetch(FORM_ENDPOINT,{method:'POST',body:fd,headers:{'Accept':'application/json'}});let j={};try{j=await r.json();}catch(e){}return r.ok&&String(j.success)!=='false';}
+let lastMsg='';
+async function post(fd){lastMsg='';try{const r=await fetch(FORM_ENDPOINT,{method:'POST',body:fd,headers:{'Accept':'application/json'}});let j={};try{j=await r.json();}catch(e){}const ok=r.ok&&String(j.success)!=='false';if(!ok)lastMsg=(j.message||('HTTP '+r.status));return ok;}catch(e){lastMsg='Verbindung zum Formular-Dienst nicht möglich (evtl. durch Werbeblocker oder Firewall blockiert).';return false;}}
 let sending=false;
 async function submitReq(){
   if(sending)return;sending=true;
@@ -1312,7 +1324,7 @@ async function submitReq(){
   }catch(e){ok=false;}
   sending=false;btn.disabled=false;btn.innerHTML=old;
   const err=$('#sendErr');
-  if(!ok){err.hidden=false;err.innerHTML='Senden hat leider nicht geklappt. Bitte versuchen Sie es erneut oder <a href="'+mailtoFallback(d)+'">senden Sie die Anfrage per E-Mail</a>.';return;}
+  if(!ok){err.hidden=false;const act=/activat|aktivier/i.test(lastMsg);err.innerHTML='Senden hat leider nicht geklappt. Bitte versuchen Sie es erneut oder <a href="'+mailtoFallback(d)+'">senden Sie die Anfrage per E-Mail</a>.'+(lastMsg?'<br><small style="color:var(--muted);font-weight:500">Technische Meldung: '+lastMsg.replace(/[<>]/g,'')+(act?' Das Formular muss einmalig per Bestätigungsmail an '+MAIL_TO+' freigeschaltet werden.':'')+'</small>':'');return;}
   err.hidden=true;
   $('#okRef').textContent=ref;$('#okName').textContent=d['Vorname'];$('#okMail').textContent=d['email'];
   go(6);toast(photosOk?'Anfrage '+ref+' gesendet':'Anfrage gesendet, Fotos bitte per E-Mail nachreichen');
@@ -1329,6 +1341,12 @@ CL.forEach(c=>c.addEventListener('change',clUpd));clUpd();
 /* ---------- Init ---------- */
 paintIcons();go(1);
 })();
+/* ---------- Cookie-Hinweis ---------- */
+(function(){const b=document.getElementById('ckbar');let seen=false;try{seen=localStorage.getItem('md-ck')==='1';}catch(e){}
+if(!seen)b.classList.add('on');
+document.getElementById('ckOk').onclick=()=>{b.classList.remove('on');try{localStorage.setItem('md-ck','1');}catch(e){}};
+document.getElementById('ckOpen').onclick=()=>{b.classList.add('on');};
+document.addEventListener('click',e=>{if(e.target.closest('#ckbar [data-legal]'))b.classList.remove('on');});})();
 /* ---------- Rechtliche Seiten (Impressum, Datenschutz, AGB) ---------- */
 (function(){const V={impressum:'impView',datenschutz:'dsView',agb:'agbView'};
 function hideAll(){Object.values(V).forEach(id=>{const v=document.getElementById(id);v.classList.remove('on');v.hidden=true;});document.body.style.overflow='';}
