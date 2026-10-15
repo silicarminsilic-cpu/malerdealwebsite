@@ -732,6 +732,69 @@ footer .logo b span{color:#fff;background:none;color:var(--y)}
 .ckbar a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-weight:600}
 .ckbar .btn{flex:0 0 auto}
 body.has-mbar .ckbar{bottom:92px}
+.pbanner{background:var(--navy);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.pbanner .wrap{display:flex;align-items:center;gap:14px 22px;flex-wrap:wrap;padding-block:12px}
+.pbanner .pb-tag{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--y)}
+.pbanner .pb-txt{font-weight:700;font-size:15.5px}
+.pbanner .pb-badges{display:flex;gap:6px;flex-wrap:wrap}
+.pbanner .pb-badges span{font-size:11px;font-weight:800;letter-spacing:.06em;border:1px solid rgba(255,200,10,.55);color:var(--y);border-radius:999px;padding:4px 10px}
+.pbanner .pb-sp{flex:1 1 20px}
+@media (min-width:701px){.pbanner .pb-tag{display:none}}
+.pbanner .btn{white-space:nowrap}
+@media (max-width:700px){.pbanner .pb-sp{display:none}.pbanner .btn{width:100%;justify-content:center}}
+#ptView .fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#ptView .fld,#ptView .check{min-width:0}
+#ptView .fld.full,#ptView .check.full,#ptView .errmsg.full{grid-column:1/-1}
+#ptView .chips{display:flex;flex-wrap:wrap;gap:8px}
+#ptView .chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;font-size:14px;cursor:pointer;color:var(--ink)}
+#ptView .chip.on{background:var(--sky);border-color:var(--y);color:var(--ink)}
+#ptView h3{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+#ptView .ptdone{text-align:center;padding:30px 0}
+@media (max-width:560px){#ptView .fields{grid-template-columns:minmax(0,1fr)}}
+
+/* ===== Animationen ===== */
+@keyframes mdUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes mdFloat{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@keyframes mdShine{0%{transform:translateX(-120%) skewX(-20deg)}60%,100%{transform:translateX(220%) skewX(-20deg)}}
+@keyframes mdPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,200,10,.45)}50%{box-shadow:0 0 0 7px rgba(255,200,10,0)}}
+@keyframes mdSweep{from{background-size:0% 38%}to{background-size:100% 38%}}
+@keyframes mdPop{0%{transform:scale(.9);opacity:0}100%{transform:none;opacity:1}}
+.hero .wrap>div:first-child>*{opacity:0;animation:mdUp .7s cubic-bezier(.2,.7,.2,1) forwards}
+.hero .wrap>div:first-child>:nth-child(1){animation-delay:.05s}
+.hero .wrap>div:first-child>:nth-child(2){animation-delay:.15s}
+.hero .wrap>div:first-child>:nth-child(3){animation-delay:.28s}
+.hero .wrap>div:first-child>:nth-child(4){animation-delay:.4s}
+.hero .wrap>div:first-child>:nth-child(5){animation-delay:.52s}
+.hero .wrap>div:first-child>:nth-child(6){animation-delay:.64s}
+.hero .wrap>div:last-child{opacity:0;animation:mdUp .8s .25s cubic-bezier(.2,.7,.2,1) forwards}
+h1 em{background:linear-gradient(var(--y),var(--y)) 0 92%/0% 38% no-repeat;animation:mdSweep .9s .8s ease-out forwards}
+.pola{animation:mdFloat 6s ease-in-out infinite;transition:transform .3s,box-shadow .3s}
+.p2{animation-delay:-2s}.p3{animation-delay:-4s}
+.pola:hover{transform:rotate(0) scale(1.05);box-shadow:0 18px 36px rgba(10,27,63,.2)}
+.pbanner .btn{position:relative;overflow:hidden;animation:mdPulse 2.4s infinite}
+.pbanner .btn::after{content:"";position:absolute;inset:0;width:40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);animation:mdShine 3.2s infinite}
+.pbanner .pb-badges span{animation:mdPop .5s backwards}
+.pbanner .pb-badges span:nth-child(2){animation-delay:.15s}.pbanner .pb-badges span:nth-child(3){animation-delay:.3s}
+header,.hdr,.top{transition:box-shadow .25s}
+.md-scrolled{box-shadow:0 6px 20px rgba(10,27,63,.1)}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:none}
+.how-card,.svc-card,.example,.price-card,.city,.faq details{transition:transform .25s,box-shadow .25s,border-color .2s}
+.how-card:hover,.svc-card:hover,.example:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(10,27,63,.12)}
+.svc-card:hover{border-color:var(--y)}
+.faq details>p{animation:fade .3s ease}
+.svc:hover{transform:translateY(-2px)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.how-card:hover.rv.in,.svc-card:hover.rv.in,.example:hover.rv.in{transform:translateY(-5px)}
+.how-card .ph span{animation:mdPop .5s backwards;animation-play-state:paused}
+.how-card.in .ph span{animation-play-state:running}
+.how-card.in .ph span:nth-child(2){animation-delay:.12s}.how-card.in .ph span:nth-child(3){animation-delay:.24s}.how-card.in .ph span:nth-child(4){animation-delay:.36s}
+@media (prefers-reduced-motion:reduce){
+ .hero .wrap>div:first-child>*,.hero .wrap>div:last-child{opacity:1;animation:none}
+ h1 em{animation:none;background-size:100% 38%}
+ .pola,.pbanner .btn,.pbanner .btn::after,.pbanner .pb-badges span{animation:none}
+ .rv{opacity:1;transform:none;transition:none}
+}
 </style>
 </head>
 <body>
@@ -741,12 +804,21 @@ body.has-mbar .ckbar{bottom:92px}
   <div class="wrap">
     <a class="logo" href="#kunden" data-go="kunden" aria-label="malerdeal.ch Startseite"><b>maler<span>deal</span>.ch</b><small>MALERARBEITEN. SCHWEIZWEIT.</small></a>
     <nav class="nav" id="navK">
-      <a href="#k-how">So funktioniert's</a><a href="#k-services">Leistungen</a><a href="#k-reviews">Beispiele</a><a href="#k-faq">FAQ</a>
+      <a href="#k-how">So funktioniert's</a><a href="#k-services">Leistungen</a><a href="#k-reviews">Beispiele</a><a href="#k-faq">FAQ</a><a href="#partner" data-legal="partner">Für Betriebe</a>
     </nav>
         <div class="spacer"></div>
     <a class="btn btn-primary btn-sm btn-top" id="topCta" href="#anfrage">Offerten anfordern</a>
   </div>
 </header>
+<div class="pbanner" id="pbanner">
+  <div class="wrap">
+    <span class="pb-tag">Für Malerbetriebe</span>
+    <span class="pb-txt">Startgeschenk: Die ersten 10 Anfragen geschenkt</span>
+    <span class="pb-badges"><span>GRATIS CRM</span><span>GRATIS APPS</span><span>GRATIS DASHBOARD</span></span>
+    <span class="pb-sp"></span>
+    <button type="button" class="btn btn-primary btn-sm" data-legal="partner">Jetzt Partner werden <i class="ic" data-i="arrow"></i></button>
+  </div>
+</div>
 <!-- ================================================================ -->
 <!-- ========================= KUNDEN VIEW ========================== -->
 <!-- ================================================================ -->
@@ -874,7 +946,7 @@ body.has-mbar .ckbar{bottom:92px}
             <div class="fld"><label for="c-ph">Telefon <i>*</i></label><input class="inp" id="c-ph" type="tel" autocomplete="tel" placeholder="+41 79 123 45 67"><span class="errmsg" id="err-ph">Bitte Telefonnummer angeben.</span></div>
             <div class="fld full"><span class="lbl">Bevorzugter Kontakt</span><div class="seg" id="c-way"><button type="button" data-v="E-Mail">E-Mail</button><button type="button" data-v="Telefon">Telefon</button><button type="button" class="on" data-v="Beides">Beides</button></div></div>
             <div class="fld full"><label for="c-note">Hinweise für die Firmen (optional)</label><textarea class="inp" id="c-note" placeholder="z. B. Wände weiss NCS S 0502-Y, Raumhöhe 2.50 m, Wohnungsabgabe am 30.11."></textarea></div>
-            <label class="check full"><input type="checkbox" id="c-ok"> Ich akzeptiere die <a href="#agb" data-legal="agb">AGB</a> und die <a href="#datenschutz" data-legal="datenschutz">Datenschutzerklärung</a>. Meine Anfrage wird an malerdeal.ch gesendet und von uns an passende Malerbetriebe weitergeleitet.</label>
+            <label class="check full"><input type="checkbox" id="c-ok"><span>Ich akzeptiere die <a href="#agb" data-legal="agb">AGB</a> und die <a href="#datenschutz" data-legal="datenschutz">Datenschutzerklärung</a>. Meine Anfrage wird an malerdeal.ch gesendet und von uns an passende Malerbetriebe weitergeleitet.</span></label>
             <span class="errmsg full" id="err-ok">Bitte AGB und Datenschutz bestätigen.</span>
           </div>
         </div>
@@ -999,6 +1071,7 @@ body.has-mbar .ckbar{bottom:92px}
         <p style="margin-top:14px;font-size:14px;max-width:30em">Ihr Portal für Malerofferten in der ganzen Schweiz. Innen, aussen, privat und für Verwaltungen.</p>
       </div>
       <div><h4>Für Kunden</h4><button class="lnk" data-go="kunden" data-anchor="anfrage">Anfrage starten</button><button class="lnk" data-go="kunden" data-anchor="k-how">So funktioniert's</button><button class="lnk" data-go="kunden" data-anchor="k-services">Leistungen</button><button class="lnk" data-go="kunden" data-anchor="k-faq">FAQ</button></div>
+      <div><h4>Für Unternehmen</h4><button class="lnk" data-legal="partner">Partner werden</button></div>
       <div><h4>Kontakt</h4><span class="lnk">+41 76 274 66 50</span><span class="lnk">anfrage@malerdeal.ch</span><span class="lnk">Churerstrasse 160B<br>8808 Pfäffikon</span></div>
     </div>
     <div class="legal"><span>© 2026 malerdeal.ch</span><span><button type="button" class="legal-lnk" data-legal="datenschutz">Datenschutz</button> · <button type="button" class="legal-lnk" data-legal="agb">AGB</button> · <button type="button" class="legal-lnk" data-legal="impressum">Impressum</button> · <button type="button" class="legal-lnk" id="ckOpen">Cookie-Hinweis</button> · DE / FR / IT / EN</span></div>
@@ -1038,6 +1111,7 @@ body.has-mbar .ckbar{bottom:92px}
     <p>malerdeal.ch ist eine Plattform, über die Privatpersonen und Verwaltungen Malerarbeiten anfragen können. Wir nehmen Ihre Anfrage entgegen und leiten sie an passende Malerbetriebe weiter, damit diese Ihnen eine Offerte erstellen können. Diese Erklärung beschreibt, welche Daten wir dabei bearbeiten. Sie richtet sich nach dem schweizerischen Datenschutzgesetz (DSG).</p>
     <h2>3. Daten, die wir bearbeiten</h2>
     <p><b>Anfrageformular:</b> Anrede, Vorname, Nachname, E-Mail-Adresse, Telefonnummer, bevorzugter Kontaktweg, Adresse des Objekts, Angaben zum Auftrag (Leistung, Grösse, Räume, Termin, Zusatzleistungen, Hinweise), die von Ihnen hochgeladenen Fotos sowie die automatisch berechnete Richtpreis-Schätzung.</p>
+    <p><b>Partner-Anfrage:</b> Firmenname, UID, Adresse, Leistungen, Einsatzgebiet, Name, E-Mail-Adresse und Telefonnummer der Ansprechperson sowie Ihre Bestätigung zu Handelsregistereintrag und Versicherung.</p>
     <p><b>Technische Daten:</b> Beim Aufruf der Website verarbeitet der Hosting-Anbieter technisch notwendige Daten, insbesondere Ihre IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browser und Betriebssystem.</p>
     <p><b>Kontakt:</b> Wenn Sie uns per E-Mail oder Telefon kontaktieren, bearbeiten wir die Angaben, die Sie uns mitteilen.</p>
     <h2>4. Zwecke</h2>
@@ -1097,6 +1171,47 @@ body.has-mbar .ckbar{bottom:92px}
 <div class="ckbar" id="ckbar" role="region" aria-label="Cookie-Hinweis">
   <p><b>Cookies &amp; Datenschutz</b>Diese Website setzt keine Tracking- oder Marketing-Cookies. Lokal gespeichert wird nur Ihre Auswahl zu diesem Hinweis. Mehr dazu in der <a href="#datenschutz" data-legal="datenschutz">Datenschutzerklärung</a>.</p>
   <button type="button" class="btn btn-primary btn-sm" id="ckOk">Verstanden</button>
+</div>
+<div id="ptView" class="legalView" role="dialog" aria-modal="true" aria-labelledby="ptT" hidden>
+  <div class="wrap">
+    <button type="button" class="back">← malerdeal.ch</button>
+    <div id="ptForm">
+    <h1 id="ptT">Partner werden</h1>
+    <p>Erhalten Sie Anfragen aus Ihrer Region. Startgeschenk: Die ersten 10 Anfragen geschenkt. Füllen Sie das Formular aus, wir prüfen Ihre Angaben und melden uns bei Ihnen.</p>
+    <form id="pt" novalidate>
+      <h3>Firma</h3>
+      <div class="fields">
+        <div class="fld full"><label for="p-firm">Firmenname <i>*</i></label><input class="inp" id="p-firm" autocomplete="organization"><span class="errmsg" id="perr-firm">Bitte Firmenname angeben.</span></div>
+        <div class="fld"><label for="p-uid">UID-Nummer (optional)</label><input class="inp" id="p-uid" placeholder="CHE-123.456.789"></div>
+        <div class="fld"><label for="p-str">Strasse und Nr.</label><input class="inp" id="p-str" autocomplete="street-address"></div>
+        <div class="fld full"><label for="p-plz">PLZ und Ort <i>*</i></label><input class="inp" id="p-plz" placeholder="8808 Pfäffikon"><span class="errmsg" id="perr-plz">Bitte PLZ und Ort angeben.</span></div>
+      </div>
+      <h3>Leistungen <i style="color:var(--red)">*</i></h3>
+      <div class="chips" id="p-svcs"></div>
+      <span class="errmsg" id="perr-svc" style="margin-top:6px">Bitte mindestens eine Leistung wählen.</span>
+      <h3>Einsatzgebiet (Kantone) <i style="color:var(--red)">*</i></h3>
+      <div class="chips" id="p-kant"></div>
+      <span class="errmsg" id="perr-kant" style="margin-top:6px">Bitte mindestens einen Kanton wählen.</span>
+      <h3>Kontakt</h3>
+      <div class="fields">
+        <div class="fld"><label for="p-fn">Vorname <i>*</i></label><input class="inp" id="p-fn" autocomplete="given-name"><span class="errmsg" id="perr-fn">Bitte Vorname angeben.</span></div>
+        <div class="fld"><label for="p-ln">Nachname <i>*</i></label><input class="inp" id="p-ln" autocomplete="family-name"><span class="errmsg" id="perr-ln">Bitte Nachname angeben.</span></div>
+        <div class="fld"><label for="p-em">Geschäftliche E-Mail <i>*</i></label><input class="inp" id="p-em" type="email" autocomplete="email"><span class="errmsg" id="perr-em">Bitte gültige E-Mail angeben.</span></div>
+        <div class="fld"><label for="p-ph">Telefon <i>*</i></label><input class="inp" id="p-ph" type="tel" autocomplete="tel"><span class="errmsg" id="perr-ph">Bitte Telefonnummer angeben.</span></div>
+        <label class="check full"><input type="checkbox" id="p-ok"><span>Meine Firma ist im Handelsregister eingetragen und verfügt über eine Betriebshaftpflichtversicherung. Ich akzeptiere die <a href="#datenschutz" data-legal="datenschutz">Datenschutzerklärung</a>.</span></label>
+        <span class="errmsg full" id="perr-ok">Bitte bestätigen.</span>
+      </div>
+      <p class="errmsg on" id="pt-err" hidden style="margin-top:14px;font-size:14px"></p>
+      <button type="submit" class="btn btn-primary btn-lg" id="ptSend" style="margin-top:20px">Partner-Anfrage senden <i class="ic" data-i="send"></i></button>
+    </form>
+    </div>
+    <div id="ptDone" class="ptdone" hidden>
+      <div class="big" style="width:64px;height:64px;border-radius:50%;background:var(--green-bg);color:var(--green);display:grid;place-items:center;margin:0 auto 14px"><i class="ic" data-i="check"></i></div>
+      <h1 style="font-size:28px">Danke, <span id="ptName"></span>!</h1>
+      <p>Ihre Partner-Anfrage ist bei uns eingegangen. Wir prüfen Ihre Angaben und melden uns bei <b id="ptMail"></b>.</p>
+      <button type="button" class="btn btn-ghost back" style="margin-top:10px">Zurück zur Startseite</button>
+    </div>
+  </div>
 </div>
 <div class="toast" id="toast"><i class="ic" data-i="check"></i><span id="toastT"></span></div>
 
@@ -1286,6 +1401,7 @@ const MAIL_TO='anfrage@malerdeal.ch';
    Solange das leer ist, geht jede Anfrage nur per E-Mail an anfrage@malerdeal.ch.
    Sobald gesetzt, wird jede Anfrage zusätzlich als JSON an die API gesendet (die E-Mail bleibt als Sicherheitskopie). */
 const API_URL='';
+window.MD={get FORM_ENDPOINT(){return FORM_ENDPOINT;},get MAIL_TO(){return MAIL_TO;},get API_URL(){return API_URL;}};
 function shrink(du,maxW,q){return new Promise(res=>{const im=new Image();im.onload=()=>{const k=Math.min(1,maxW/Math.max(im.width,im.height));const c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',q));};im.onerror=()=>res(null);im.src=du;});}
 function collect(ref){
   const svc=SVC.find(s=>s.k===S.svc);const single=$('#addrB').hidden;
@@ -1341,6 +1457,45 @@ CL.forEach(c=>c.addEventListener('change',clUpd));clUpd();
 /* ---------- Init ---------- */
 paintIcons();go(1);
 })();
+/* ---------- Partner werden (Anfrage landet per E-Mail bei anfrage@malerdeal.ch) ---------- */
+(function(){
+const SV=["Innenanstrich","Fassade","Lackierarbeiten","Tapezieren","Gipserarbeiten","Holzschutz aussen","Treppenhaus","Wohnungsabgabe","Farbberatung"];
+const KT=['ZH','BE','LU','UR','SZ','OW','NW','GL','ZG','FR','SO','BS','BL','SH','AR','AI','SG','GR','AG','TG','TI','VD','VS','NE','GE','JU'];
+const q=s=>document.querySelector(s);
+function chips(el,list,err){el.innerHTML=list.map(o=>`<button type="button" class="chip" data-v="${o}">${o}</button>`).join('');el.addEventListener('click',e=>{const c=e.target.closest('.chip');if(!c)return;c.classList.toggle('on');q(err).classList.remove('on');});}
+document.addEventListener('click',e=>{if(e.target.closest('[data-legal="partner"]')){q('#ptForm').hidden=false;q('#ptDone').hidden=true;}});
+chips(q('#p-svcs'),SV,'#perr-svc');chips(q('#p-kant'),KT,'#perr-kant');
+const picked=id=>[...document.querySelectorAll(id+' .chip.on')].map(c=>c.dataset.v);
+function need(id,err,test){const el=q(id);const ok=test?test(el.value):el.value.trim().length>1;el.classList.toggle('err',!ok);q(err).classList.toggle('on',!ok);return ok;}
+q('#pt').addEventListener('input',e=>{if(e.target.classList&&e.target.classList.contains('err'))e.target.classList.remove('err');});
+let busy=false;
+q('#pt').addEventListener('submit',async e=>{
+  e.preventDefault();if(busy)return;
+  let ok=need('#p-firm','#perr-firm');ok=need('#p-plz','#perr-plz')&&ok;
+  const sv=picked('#p-svcs'),kt=picked('#p-kant');
+  q('#perr-svc').classList.toggle('on',!sv.length);q('#perr-kant').classList.toggle('on',!kt.length);
+  ok=need('#p-fn','#perr-fn')&&ok;ok=need('#p-ln','#perr-ln')&&ok;
+  ok=need('#p-em','#perr-em',v=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()))&&ok;
+  ok=need('#p-ph','#perr-ph',v=>v.replace(/\D/g,'').length>=9)&&ok;
+  const c=q('#p-ok').checked;q('#perr-ok').classList.toggle('on',!c);
+  if(!(ok&&sv.length&&kt.length&&c)){const f=q('#ptView .err, #ptView .errmsg.on');f&&f.scrollIntoView({block:'center',behavior:'smooth'});return;}
+  const ref='MP-'+(100+Math.floor(Math.random()*899));
+  const d={'Art':'Partner-Anfrage','Referenz':ref,'Firmenname':q('#p-firm').value.trim(),'UID':q('#p-uid').value.trim()||'–','Adresse':(q('#p-str').value.trim()+', '+q('#p-plz').value.trim()).replace(/^, /,''),
+    'Leistungen':sv.join(', '),'Einsatzgebiet (Kantone)':kt.join(', '),'Vorname':q('#p-fn').value.trim(),'Nachname':q('#p-ln').value.trim(),'email':q('#p-em').value.trim(),'Telefon':q('#p-ph').value.replace(/\s+/g,' ').trim(),'Handelsregister und Versicherung bestätigt':'Ja'};
+  const fd=new FormData();Object.entries(d).forEach(([k,v])=>fd.append(k,v));
+  fd.append('_subject','Neue Partner-Anfrage '+ref+' – '+d['Firmenname']+' – '+q('#p-plz').value.trim());fd.append('_template','table');fd.append('_captcha','false');fd.append('_honey','');
+  busy=true;const btn=q('#ptSend'),old=btn.innerHTML;btn.disabled=true;btn.textContent='Wird gesendet …';
+  let sent=false,msg='';
+  try{if(MD.API_URL){fetch(MD.API_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({source:'malerdeal.ch',type:'partner',ref:ref,createdAt:new Date().toISOString(),fields:d})}).catch(()=>{});}
+    const r=await fetch(MD.FORM_ENDPOINT,{method:'POST',body:fd,headers:{'Accept':'application/json'}});let j={};try{j=await r.json();}catch(x){}
+    sent=r.ok&&String(j.success)!=='false';if(!sent)msg=j.message||('HTTP '+r.status);}
+  catch(x){msg='Verbindung zum Formular-Dienst nicht möglich.';}
+  busy=false;btn.disabled=false;btn.innerHTML=old;
+  const er=q('#pt-err');
+  if(!sent){er.hidden=false;const body=Object.entries(d).map(([k,v])=>k+': '+v).join('\n');er.innerHTML='Senden hat leider nicht geklappt. Bitte versuchen Sie es erneut oder <a href="mailto:'+MD.MAIL_TO+'?subject='+encodeURIComponent('Partner-Anfrage '+ref)+'&body='+encodeURIComponent(body)+'">senden Sie die Anfrage per E-Mail</a>.'+(msg?'<br><small style="color:var(--muted);font-weight:500">Technische Meldung: '+String(msg).replace(/[<>]/g,'')+'</small>':'');return;}
+  er.hidden=true;q('#ptName').textContent=d['Vorname'];q('#ptMail').textContent=d['email'];q('#ptForm').hidden=true;q('#ptDone').hidden=false;q('#ptView').scrollTop=0;
+});
+})();
 /* ---------- Cookie-Hinweis ---------- */
 (function(){const b=document.getElementById('ckbar');let seen=false;try{seen=localStorage.getItem('md-ck')==='1';}catch(e){}
 if(!seen)b.classList.add('on');
@@ -1348,7 +1503,7 @@ document.getElementById('ckOk').onclick=()=>{b.classList.remove('on');try{localS
 document.getElementById('ckOpen').onclick=()=>{b.classList.add('on');};
 document.addEventListener('click',e=>{if(e.target.closest('#ckbar [data-legal]'))b.classList.remove('on');});})();
 /* ---------- Rechtliche Seiten (Impressum, Datenschutz, AGB) ---------- */
-(function(){const V={impressum:'impView',datenschutz:'dsView',agb:'agbView'};
+(function(){const V={impressum:'impView',datenschutz:'dsView',agb:'agbView',partner:'ptView'};
 function hideAll(){Object.values(V).forEach(id=>{const v=document.getElementById(id);v.classList.remove('on');v.hidden=true;});document.body.style.overflow='';}
 function show(k,push){hideAll();const v=document.getElementById(V[k]);v.hidden=false;v.classList.add('on');v.scrollTop=0;document.body.style.overflow='hidden';if(push&&location.hash!=='#'+k)history.pushState(null,'','#'+k);}
 function close(){hideAll();if(V[location.hash.slice(1)])history.pushState(null,'',location.pathname+location.search);}
@@ -1358,5 +1513,25 @@ window.addEventListener('popstate',()=>{const k=location.hash.slice(1);V[k]?show
 if(V[location.hash.slice(1)])show(location.hash.slice(1),false);})();
 </script>
 
+
+<script>
+(function(){
+  var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var hd=document.querySelector('header');
+  function sc(){if(hd)hd.classList.toggle('md-scrolled',window.scrollY>8);}
+  window.addEventListener('scroll',sc,{passive:true});sc();
+  if(rm||!('IntersectionObserver' in window))return;
+  var sel='.sec-head,.how-card,.svc-card,.example,.faq details,#k-story .wrap>*,#k-prices .wrap>*,#k-cities .wrap>*,.cta-band';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){
+    var sib=[].filter.call(el.parentNode.children,function(c){return c.matches(sel);});
+    el.style.setProperty('--d',(Math.min(sib.indexOf(el),5)*0.09)+'s');
+    el.classList.add('rv');io.observe(el);
+  });
+  /* Spaetere dynamisch erzeugte Leistungs-Karten */
+  setTimeout(function(){document.querySelectorAll('.svc-card:not(.rv)').forEach(function(el,i){el.style.setProperty('--d',(i%4*0.09)+'s');el.classList.add('rv');io.observe(el);});},50);
+})();
+</script>
 </body>
 </html>
