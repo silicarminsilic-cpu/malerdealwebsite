@@ -7,6 +7,7 @@
 <title>malerdeal.ch – Malerofferten in der ganzen Schweiz</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@500&display=swap">
+<script>(function(){try{var rm=matchMedia('(prefers-reduced-motion:reduce)').matches,seen=sessionStorage.getItem('md-intro');if(!rm&&!seen&&!/^#(impressum|datenschutz|agb|partner)/.test(location.hash)){document.documentElement.classList.add('md-intro');sessionStorage.setItem('md-intro','1');}}catch(e){}})();</script>
 <style>
 :root{
   color-scheme: light;
@@ -795,9 +796,87 @@ header,.hdr,.top{transition:box-shadow .25s}
  .pola,.pbanner .btn,.pbanner .btn::after,.pbanner .pb-badges span{animation:none}
  .rv{opacity:1;transform:none;transition:none}
 }
+
+/* ===== Intro ===== */
+#intro{display:none}
+.md-intro #intro{display:grid;position:fixed;inset:0;z-index:300;place-items:center;overflow:hidden;animation:mdOut .8s cubic-bezier(.7,0,.2,1) 3.1s forwards}
+.md-intro.md-skip #intro{animation-duration:.45s;animation-delay:0s}
+.md-intro.md-skip .hero .wrap>div:first-child>*,.md-intro.md-skip .hero .wrap>div:last-child{animation-delay:.1s}
+@keyframes mdOut{to{transform:translateY(-100%);visibility:hidden}}
+#intro .in-bg{position:absolute;inset:0;background:var(--navy)}
+#intro .in-bg::before,#intro .in-bg::after{content:"";position:absolute;border-radius:50%;background:var(--y);opacity:.12;filter:blur(2px)}
+#intro .in-bg::before{width:60vmax;height:60vmax;left:-20vmax;top:-25vmax;animation:mdDrift 6s ease-in-out infinite alternate}
+#intro .in-bg::after{width:45vmax;height:45vmax;right:-15vmax;bottom:-22vmax;animation:mdDrift 7s ease-in-out infinite alternate-reverse}
+@keyframes mdDrift{to{transform:translate(40px,30px) scale(1.08)}}
+#intro .in-c{position:relative;text-align:center;color:#fff;padding:0 24px}
+#intro .in-logo{font-weight:800;font-size:clamp(44px,9vw,92px);letter-spacing:-.02em;line-height:1;display:flex;justify-content:center;overflow:hidden;padding-bottom:.08em}
+#intro .in-logo span{display:inline-block;transform:translateY(110%);animation:mdRise .7s cubic-bezier(.2,.8,.2,1) forwards}
+#intro .in-logo span:nth-child(1){animation-delay:.15s}#intro .in-logo .d{color:var(--y);animation-delay:.3s}#intro .in-logo span:nth-child(3){animation-delay:.45s}
+@keyframes mdRise{to{transform:none}}
+#intro .in-bar{height:8px;border-radius:6px;background:var(--y);width:min(60vw,340px);margin:14px auto 0;transform:scaleX(0);transform-origin:left;animation:mdBar .8s cubic-bezier(.6,0,.2,1) .8s forwards}
+@keyframes mdBar{to{transform:scaleX(1)}}
+#intro .in-st{margin-top:28px;font-size:clamp(20px,3.6vw,34px);font-weight:700;opacity:0;transform:translateY(14px);animation:mdUp .7s ease 1.35s forwards}
+#intro .in-st em{font-style:normal;color:var(--y)}
+#intro .in-sub{margin-top:12px;font-size:clamp(13px,1.8vw,16px);color:#CFC8B6;opacity:0;animation:mdUp .7s ease 1.9s forwards}
+/* Hero startet erst nach dem Intro */
+.md-intro .hero .wrap>div:first-child>:nth-child(1){animation-delay:3.4s}
+.md-intro .hero .wrap>div:first-child>:nth-child(2){animation-delay:3.5s}
+.md-intro .hero .wrap>div:first-child>:nth-child(3){animation-delay:3.62s}
+.md-intro .hero .wrap>div:first-child>:nth-child(4){animation-delay:3.75s}
+.md-intro .hero .wrap>div:first-child>:nth-child(5){animation-delay:3.88s}
+.md-intro .hero .wrap>div:first-child>:nth-child(6){animation-delay:4s}
+.md-intro .hero .wrap>div:last-child{animation-delay:3.65s}
+.md-intro h1 em{animation-delay:4.3s}
+.md-intro .top{animation:mdDown .7s ease 3.5s backwards}
+.md-intro.md-skip .top{animation-delay:0s}
+@keyframes mdDown{from{transform:translateY(-100%)}}
+/* ===== mehr Bewegung ===== */
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;pointer-events:none;z-index:0}
+.hero::before{width:380px;height:380px;right:-120px;top:40px;background:radial-gradient(circle,rgba(255,200,10,.28),rgba(255,200,10,0) 70%);animation:mdDrift 9s ease-in-out infinite alternate}
+.hero::after{width:300px;height:300px;left:-100px;bottom:-60px;background:radial-gradient(circle,rgba(255,200,10,.2),rgba(255,200,10,0) 70%);animation:mdDrift 11s ease-in-out infinite alternate-reverse}
+.hero>.wrap{position:relative;z-index:1}
+#mdProg{position:fixed;left:0;top:0;height:3px;width:100%;background:var(--y);transform:scaleX(0);transform-origin:left;z-index:90;pointer-events:none}
+.trust .wrap>div{transition:transform .25s}.trust .wrap>div:hover{transform:translateY(-3px)}
+.trust .ic{transition:transform .35s,background .25s}.trust div:hover .ic{transform:rotate(-8deg) scale(1.1);background:var(--y);color:#1D1A14}
+.btn-primary{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;top:0;bottom:0;left:0;width:35%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:translateX(-130%) skewX(-20deg);transition:none;pointer-events:none}
+.btn-primary:hover::after{transform:translateX(330%) skewX(-20deg);transition:transform .7s ease}
+.sec-head h2,.h2{background:linear-gradient(var(--y),var(--y)) 0 94%/0% 14% no-repeat;transition:background-size .9s .35s ease}
+.sec-head.in h2,.rv.in .h2,.h2.in{background-size:100% 14%}
+.how-card .num{display:inline-block;transition:transform .3s}.how-card:hover .num{transform:translateX(4px)}
+.svc-card .ic{transition:transform .35s}.svc-card:hover .ic{transform:scale(1.15) rotate(-6deg)}
+details summary{transition:color .2s}details[open] summary{color:var(--blue)}
+.pbanner{overflow:hidden}
+.pbanner .pb-x{background:none;border:0;color:#CFC8B6;font-size:24px;line-height:1;padding:2px 6px;cursor:pointer;margin-left:-6px}
+.pbanner .pb-x:hover{color:#fff}
+.pbanner.gone{display:none}
+@media (max-width:700px){.pbanner .pb-x{position:absolute;right:10px;top:8px}.pbanner .wrap{position:relative}}
+.pt-sec{padding-block:70px 20px}
+.pt-box{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center;background:var(--navy);color:#fff;border-radius:24px;padding:44px;position:relative;overflow:hidden}
+.pt-box::before{content:"";position:absolute;right:-90px;top:-90px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(255,200,10,.3),rgba(255,200,10,0) 70%);animation:mdDrift 8s ease-in-out infinite alternate}
+.pt-box .eyebrow{color:var(--y)}
+.pt-box h2{font-size:clamp(26px,3.2vw,38px);font-weight:800;margin:10px 0 12px;color:#fff}
+.pt-box p{color:#D8D1BF;margin-bottom:22px;max-width:30em}
+.pt-steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;position:relative}
+.pt-steps li{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px 16px;transition:transform .25s,background .25s}
+.pt-steps li:hover{transform:translateX(6px);background:rgba(255,255,255,.11)}
+.pt-steps b{flex:0 0 32px;height:32px;border-radius:50%;background:var(--y);color:#1D1A14;display:grid;place-items:center;font-weight:800}
+.pt-steps strong{display:block;font-size:15.5px}.pt-steps small{color:#BDB6A3;font-size:13.5px}
+@media (max-width:860px){.pt-box{grid-template-columns:1fr;padding:28px 22px}}
+@media (prefers-reduced-motion:reduce){#intro{display:none!important}.hero::before,.hero::after,.pt-box::before{animation:none}.sec-head h2,.h2{background-size:100% 14%;transition:none}#mdProg{display:none}}
 </style>
 </head>
 <body>
+<div id="intro" aria-hidden="true">
+  <div class="in-bg"></div>
+  <div class="in-c">
+    <div class="in-logo"><span>maler</span><span class="d">deal</span><span>.ch</span></div>
+    <div class="in-bar"></div>
+    <div class="in-st"><span>Frisch gestrichen.</span> <em>Fair offeriert.</em></div>
+    <div class="in-sub">Malerofferten aus Ihrer Region · kostenlos &amp; unverbindlich</div>
+  </div>
+</div>
+
 
 <!-- ================= HEADER ================= -->
 <header class="top">
@@ -813,10 +892,11 @@ header,.hdr,.top{transition:box-shadow .25s}
 <div class="pbanner" id="pbanner">
   <div class="wrap">
     <span class="pb-tag">Für Malerbetriebe</span>
-    <span class="pb-txt">Startgeschenk: Die ersten 10 Anfragen geschenkt</span>
-    <span class="pb-badges"><span>GRATIS CRM</span><span>GRATIS APPS</span><span>GRATIS DASHBOARD</span></span>
+    <span class="pb-txt">Malerbetrieb? Erhalten Sie Anfragen aus Ihrer Region.</span>
+    <span class="pb-badges"><span>UNVERBINDLICH</span><span>IHRE REGION</span><span>PERSÖNLICH GEPRÜFT</span></span>
     <span class="pb-sp"></span>
     <button type="button" class="btn btn-primary btn-sm" data-legal="partner">Jetzt Partner werden <i class="ic" data-i="arrow"></i></button>
+    <button type="button" class="pb-x" id="pbX" aria-label="Banner schliessen">×</button>
   </div>
 </div>
 <!-- ================================================================ -->
@@ -1048,6 +1128,24 @@ header,.hdr,.top{transition:box-shadow .25s}
   </div>
 </section>
 
+<section class="sec pt-sec" id="k-partner">
+  <div class="wrap">
+    <div class="pt-box">
+      <div class="pt-l">
+        <span class="eyebrow">Für Malerbetriebe</span>
+        <h2>Mehr Aufträge aus Ihrer Region</h2>
+        <p>Kundinnen und Kunden beschreiben ihr Projekt mit Fotos und Flächen. Passende Anfragen leiten wir an geprüfte Betriebe weiter.</p>
+        <button type="button" class="btn btn-primary btn-lg" data-legal="partner">Jetzt Partner werden <i class="ic" data-i="arrow"></i></button>
+      </div>
+      <ol class="pt-steps">
+        <li><b>1</b><span><strong>Anfrage senden</strong><small>Firma, Leistungen und Einsatzgebiet in 2 Minuten angeben.</small></span></li>
+        <li><b>2</b><span><strong>Wir prüfen</strong><small>Handelsregister und Versicherung, persönliche Rückmeldung.</small></span></li>
+        <li><b>3</b><span><strong>Anfragen erhalten</strong><small>Passende Aufträge aus Ihrer Region per E-Mail.</small></span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
 <section class="wrap">
   <div class="cta-band">
     <div><h2>Bereit für frische Farbe?</h2><p>In 3 Minuten ausgefüllt. Offerten meist schon heute.</p></div>
@@ -1087,13 +1185,13 @@ header,.hdr,.top{transition:box-shadow .25s}
     <button type="button" class="back">← malerdeal.ch</button>
     <h1 id="impT">Impressum</h1>
     <h2>Betreiberin</h2>
-    <p>Dritivo AG (in Gründung)<br>Churerstrasse 160B<br>8808 Pfäffikon<br>Schweiz</p>
+    <p>Dritivo AG<br>Churerstrasse 160B<br>8808 Pfäffikon<br>Schweiz</p>
     <h2>Kontakt</h2>
     <p>E-Mail: <a href="mailto:anfrage@malerdeal.ch">anfrage@malerdeal.ch</a><br>Telefon: <a href="tel:+41762746650">+41 76 274 66 50</a></p>
-    <h2>Status</h2>
-    <p>Die Dritivo AG befindet sich in Gründung. Angaben zum Handelsregistereintrag, zur UID und zu den Vertretungsberechtigten werden nach der Eintragung ergänzt.</p>
+    <h2>Handelsregister</h2>
+    <p>Dritivo AG, Aktiengesellschaft mit Sitz in Freienbach SZ<br>UID: CHE-332.319.246<br>Handelsregisteramt des Kantons Schwyz, Eintrag vom 19.10.2026<br>Verwaltungsrat: Jeton Gutaj (Präsident) und Gianluca Di Martino (Mitglied), je mit Kollektivunterschrift zu zweien</p>
     <h2>Plattformen</h2>
-    <p>Die Plattform malerdeal.ch wird von der Dritivo AG (in Gründung) betrieben und befindet sich im Aufbau.</p>
+    <p>Die Plattform malerdeal.ch wird von der Dritivo AG betrieben und befindet sich im Aufbau.</p>
     <h2>Haftungsausschluss</h2>
     <p>Die Inhalte dieser Website wurden mit grösster Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität wird jedoch keine Gewähr übernommen. Für Inhalte externer Links sind ausschliesslich deren Betreiber verantwortlich.</p>
     <h2>Urheberrecht</h2>
@@ -1106,7 +1204,7 @@ header,.hdr,.top{transition:box-shadow .25s}
     <h1 id="dsT">Datenschutzerklärung</h1>
     <p>Stand: Oktober 2026</p>
     <h2>1. Verantwortliche</h2>
-    <p>Verantwortlich für die Bearbeitung von Personendaten auf dieser Website ist die Dritivo AG (in Gründung), Churerstrasse 160B, 8808 Pfäffikon, Schweiz. Kontakt: <a href="mailto:anfrage@malerdeal.ch">anfrage@malerdeal.ch</a>, <a href="tel:+41762746650">+41 76 274 66 50</a>.</p>
+    <p>Verantwortlich für die Bearbeitung von Personendaten auf dieser Website ist die Dritivo AG, Churerstrasse 160B, 8808 Pfäffikon, Schweiz. Kontakt: <a href="mailto:anfrage@malerdeal.ch">anfrage@malerdeal.ch</a>, <a href="tel:+41762746650">+41 76 274 66 50</a>.</p>
     <h2>2. Worum es geht</h2>
     <p>malerdeal.ch ist eine Plattform, über die Privatpersonen und Verwaltungen Malerarbeiten anfragen können. Wir nehmen Ihre Anfrage entgegen und leiten sie an passende Malerbetriebe weiter, damit diese Ihnen eine Offerte erstellen können. Diese Erklärung beschreibt, welche Daten wir dabei bearbeiten. Sie richtet sich nach dem schweizerischen Datenschutzgesetz (DSG).</p>
     <h2>3. Daten, die wir bearbeiten</h2>
@@ -1143,7 +1241,7 @@ header,.hdr,.top{transition:box-shadow .25s}
     <h1 id="agbT">Allgemeine Geschäftsbedingungen</h1>
     <p>Stand: Oktober 2026</p>
     <h2>1. Geltung und Anbieterin</h2>
-    <p>Diese Bedingungen gelten für die Nutzung der Plattform malerdeal.ch. Anbieterin ist die Dritivo AG (in Gründung), Churerstrasse 160B, 8808 Pfäffikon, Schweiz. Mit dem Absenden einer Anfrage akzeptieren Sie diese Bedingungen.</p>
+    <p>Diese Bedingungen gelten für die Nutzung der Plattform malerdeal.ch. Anbieterin ist die Dritivo AG, Churerstrasse 160B, 8808 Pfäffikon, Schweiz. Mit dem Absenden einer Anfrage akzeptieren Sie diese Bedingungen.</p>
     <h2>2. Leistung von malerdeal.ch</h2>
     <p>malerdeal.ch vermittelt Anfragen für Malerarbeiten an Malerbetriebe. Wir selbst führen keine Malerarbeiten aus und geben keine Offerten ab. Die Nutzung der Plattform ist für Kundinnen und Kunden kostenlos und unverbindlich.</p>
     <h2>3. Ablauf</h2>
@@ -1177,7 +1275,7 @@ header,.hdr,.top{transition:box-shadow .25s}
     <button type="button" class="back">← malerdeal.ch</button>
     <div id="ptForm">
     <h1 id="ptT">Partner werden</h1>
-    <p>Erhalten Sie Anfragen aus Ihrer Region. Startgeschenk: Die ersten 10 Anfragen geschenkt. Füllen Sie das Formular aus, wir prüfen Ihre Angaben und melden uns bei Ihnen.</p>
+    <p>Erhalten Sie Anfragen aus Ihrer Region. Füllen Sie das Formular aus, wir prüfen Ihre Angaben und melden uns persönlich bei Ihnen.</p>
     <form id="pt" novalidate>
       <h3>Firma</h3>
       <div class="fields">
@@ -1521,7 +1619,7 @@ if(V[location.hash.slice(1)])show(location.hash.slice(1),false);})();
   function sc(){if(hd)hd.classList.toggle('md-scrolled',window.scrollY>8);}
   window.addEventListener('scroll',sc,{passive:true});sc();
   if(rm||!('IntersectionObserver' in window))return;
-  var sel='.sec-head,.how-card,.svc-card,.example,.faq details,#k-story .wrap>*,#k-prices .wrap>*,#k-cities .wrap>*,.cta-band';
+  var sel='.sec-head,.how-card,.svc-card,.example,.faq details,#k-story .wrap>*,#k-prices .wrap>*,#k-cities .wrap>*,.pt-l,.pt-steps li,.cta-band';
   var els=[].slice.call(document.querySelectorAll(sel));
   var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   els.forEach(function(el){
@@ -1531,6 +1629,32 @@ if(V[location.hash.slice(1)])show(location.hash.slice(1),false);})();
   });
   /* Spaetere dynamisch erzeugte Leistungs-Karten */
   setTimeout(function(){document.querySelectorAll('.svc-card:not(.rv)').forEach(function(el,i){el.style.setProperty('--d',(i%4*0.09)+'s');el.classList.add('rv');io.observe(el);});},50);
+})();
+</script>
+
+<script>
+(function(){
+  var de=document.documentElement,rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  /* Intro ueberspringen per Klick/Taste */
+  var it=document.getElementById('intro');
+  if(it&&de.classList.contains('md-intro')){
+    var skip=function(){de.classList.add('md-skip');};
+    it.addEventListener('click',skip);document.addEventListener('keydown',skip,{once:true});
+    setTimeout(function(){de.classList.remove('md-intro','md-skip');},4400);
+  }
+  /* Scroll-Fortschritt */
+  if(!rm){
+    var pr=document.createElement('div');pr.id='mdProg';document.body.appendChild(pr);
+    var tk=false;function up(){var h=de.scrollHeight-innerHeight;pr.style.transform='scaleX('+(h>0?Math.min(1,scrollY/h):0)+')';tk=false;}
+    addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(up);}},{passive:true});up();
+    /* leichter Parallax der Polaroids */
+    var pl=document.querySelector('.polas');
+    if(pl&&innerWidth>900){addEventListener('scroll',function(){pl.style.transform='translateY('+Math.min(40,scrollY*0.06)+'px)';},{passive:true});}
+  }
+  /* Partner-Banner: schliessbar, pro Sitzung gemerkt */
+  var b=document.getElementById('pbanner'),x=document.getElementById('pbX');
+  try{if(sessionStorage.getItem('md-pb')==='1'&&b)b.classList.add('gone');}catch(e){}
+  if(x)x.addEventListener('click',function(){b.classList.add('gone');try{sessionStorage.setItem('md-pb','1');}catch(e){}});
 })();
 </script>
 </body>
